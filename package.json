@@ -1,0 +1,32 @@
+{
+  "name": "user-question-solution",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "http": "0.0.1-security",
+    "jest": "^26.5.3",
+    "mongodb": "^3.6.2",
+    "mongoose": "^5.10.9",
+    "supertest": "^5.0.0"
+  },
+  "devDependencies": {
+    "@shelf/jest-mongodb": "^1.2.3"
+  },
+  "scripts": {
+    "test": "jest --detectOpenHandles --runInBand --verbose --forceExit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/talkwithcode-com/user-question-solution.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/talkwithcode-com/user-question-solution/issues"
+  },
+  "homepage": "https://github.com/talkwithcode-com/user-question-solution#readme"
+}
