@@ -4,17 +4,15 @@ if(process.env.NODE_ENV !== 'production') {
 const express = require('express')
 const app = express()
 const PORT = process.env.PORT || 3000
-const router = require('./routers')
+const router = require('./routes')
+const routers = require('./routers')
 const errorHandler = require('./middlewares/errorHandler')
-const listen = require('./bin/http')
+require('./config/mongoose')
 
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
-
 app.use(router)
+app.use(routers)
 app.use(errorHandler)
 
-app.listen(PORT, () => {
-    console.log(`Server listening on http://localhost:${PORT}`)
-})
 module.exports = app
