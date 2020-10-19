@@ -1,26 +1,34 @@
-function errorHandler(err, req, res, next) {
+module.exports = function errorHandler (err, req, res, next) {
+
     let errors = []
     let statusCode = 500
 
-    console.log(err.errors, "ini")
     switch (err.name) {
-
-        case "ValidationError":
-
+        case 'ValidationError':
             statusCode = 400
-            let object = err.errors
-            for (const key in object) {
-                if (object.hasOwnProperty(key)) {
-                    errors.push(object[key].message)
-                }
+            if (err.details) {
+              errors.push(err.details[0].message)
+            } else {
+              let object = err.errors
+              for (const key in object) {
+                  if (object.hasOwnProperty(key)) {
+                      errors.push(object[key].message)
+                  }
+              }
             }
-            break;
+            break
+        case 'MongoError':
+            statusCode = 400
+            errors.push('Email has been used, please use another email')
+            break
+        case 'InvalidEmailOrPassword':
+            statusCode = 400
+            errors.push('Invalid email or password')
+            break
         default:
-            errors.push(err.msg)
-            statusCode = (err.statusCode)
+            errors.push('Internal server error')
     }
+    console.log(statusCode, errors)
     res.status(statusCode).json({ errors })
+
 }
-
-
-module.exports = errorHandler
