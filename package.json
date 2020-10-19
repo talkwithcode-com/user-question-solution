@@ -1,0 +1,35 @@
+{
+  "name": "user-question-solution",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --detectOpenHandles --runInBand --verbose --testEnvironment=node",
+    "dev": "NODE_ENV=development nodemon app.js",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/talkwithcode-com/user-question-solution.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/talkwithcode-com/user-question-solution/issues"
+  },
+  "homepage": "https://github.com/talkwithcode-com/user-question-solution#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "bcryptjs": "^2.4.3",
+    "express": "^4.17.1",
+    "joi": "^17.2.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.10.9"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0",
+    "jest": "^26.5.3",
+    "supertest": "^5.0.0"
+  }
+}
