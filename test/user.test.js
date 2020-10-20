@@ -10,11 +10,11 @@ const userData = {
     password: "tes123"
 }
 
-beforeAll(async (done) => {
-    const url = `mongodb://127.0.0.1/${databaseName}`
-    await mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
-    done()
-})
+// beforeAll(async (done) => {
+//     const url = `mongodb://127.0.0.1/${databaseName}`
+//     await mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
+//     done()
+// })
 
 afterAll(async (done) => {
     await User.deleteMany({})

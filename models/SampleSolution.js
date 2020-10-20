@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const SolutionSchema = new Schema({
+const SampleSolutionSchema = new Schema({
     type: Number,
     input: {
         type: String,
@@ -13,6 +13,6 @@ const SolutionSchema = new Schema({
     }
 })
 
-const Solution = mongoose.model('Solution', SolutionSchema)
+const SampleSolution = mongoose.model('SampleSolution', SampleSolutionSchema)
 
-module.exports = Solution
+module.exports = SampleSolution

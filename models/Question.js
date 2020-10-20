@@ -15,15 +15,16 @@ const QuestionSchema = new Schema({
         required: [true, 'Description is required']
     },
     user_id: String,
-    sample_solution: [{
-        type: Schema.Types.ObjectId, // ObjectId
-        input: String,
-        output: String,
-    }],
+    sample_solution: [
+        {
+            type: Schema.Types.ObjectId, // ObjectId
+            ref: 'SampleSolution'
+        }
+    ],
     solution: [ // default []
         {
-        type: Schema.Types.ObjectId, // ObjectId
-        ref: 'Solution'
+            type: Schema.Types.ObjectId, // ObjectId
+            ref: 'Solution'
         }
     ]
 })

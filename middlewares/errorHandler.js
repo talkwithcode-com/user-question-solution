@@ -1,4 +1,4 @@
-module.exports = function errorHandler (err, req, res, next) {
+module.exports = function errorHandler(err, req, res, next) {
 
     let errors = []
     let statusCode = 500
@@ -7,15 +7,19 @@ module.exports = function errorHandler (err, req, res, next) {
         case 'ValidationError':
             statusCode = 400
             if (err.details) {
-              errors.push(err.details[0].message)
+                errors.push(err.details[0].message)
             } else {
-              let object = err.errors
-              for (const key in object) {
-                  if (object.hasOwnProperty(key)) {
-                      errors.push(object[key].message)
-                  }
-              }
+                let object = err.errors
+                for (const key in object) {
+                    if (object.hasOwnProperty(key)) {
+                        errors.push(object[key].message)
+                    }
+                }
             }
+            break
+        case "unauthorized":
+            statusCode = 401
+            errors.push(err.name)
             break
         case 'MongoError':
             statusCode = 400
@@ -28,7 +32,7 @@ module.exports = function errorHandler (err, req, res, next) {
         default:
             errors.push('Internal server error')
     }
-    console.log(statusCode, errors)
+    // console.log(statusCode, errors)
     res.status(statusCode).json({ errors })
 
 }
