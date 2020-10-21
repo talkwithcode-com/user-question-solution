@@ -14,11 +14,11 @@ module.exports = class QuestionController {
   static ReadSolution(req, res, next) {
     const _id = req.params.id;
     console.log("masuk controller");
-    Question.find({ _id })
+    Question.findOne({ _id })
       .populate("solution")
       .populate("sample_solution")
       .then((data) => {
-        res.status(200).json({ questions: data });
+        res.status(200).json({ questions: [data] });
       })
       .catch(next);
   }
