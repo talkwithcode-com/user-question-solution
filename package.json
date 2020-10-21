@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --detectOpenHandles --runInBand --verbose --testEnvironment=node",
-    "dev": "NODE_ENV=development nodemon app.js",
+    "test": "jest --detectOpenHandles --runInBand --verbose --testEnvironment=node --coverage",
+    "dev": "NODE_ENV=development nodemon bin/http",
     "start": "nodemon bin/http"
   },
   "repository": {
